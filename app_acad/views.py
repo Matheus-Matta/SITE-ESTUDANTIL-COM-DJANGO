@@ -1,21 +1,18 @@
 
 from django.http import JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 
 from .models import Usuarios
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Permission
-from django.contrib.auth.hashers import make_password
 
 from .utils import email_confirmacao, email_recuperacao , signer_message
 
 from django.core.signing import TimestampSigner, BadSignature, SignatureExpired,Signer
 
 from django.template.loader import render_to_string
-from django.utils.html import strip_tags
 
-from datetime import timedelta
 
 # render(request,pagina html)
 # função para retorna uma pagina html na rota
