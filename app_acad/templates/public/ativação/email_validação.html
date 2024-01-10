@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+       .body{
+        background-color: #212121;
+        color: white;
+        font-family: sans-serif;
+        text-align: center;
+       }
+       .box{
+        padding: 20px 0;
+       }
+       .btn-acesso {
+        width: 250px;
+        height: 30px;
+        border-radius: 5px;
+        background: linear-gradient(94deg, rgba(0, 151, 171, 1) 0%, rgba(13, 202, 209, 1) 100%);
+        color: #f1f1f1;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 1px;
+        }
+        .boas-vindas{
+            width: 250px;
+            margin: 0 auto;
+            border-bottom: 3px solid rgba(13, 202, 209, 1);
+            padding-bottom: 10px;
+        }
+        .titulo{
+            width: 200px;
+            margin: 0 auto;
+            font-size: 18px;
+            margin-top: 10px;
+            color: rgb(254, 208, 25);
+        }
+        .info{
+            width: 400px;
+            margin: 10px auto;
+            font-size: 14px;
+        }
+        .alerta{
+          font-size: 12px;
+          margin-top: 10px;
+        }
+        .link{
+            width: 250px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="box">
+        <img class="img" src="https://img.icons8.com/ios/50/ffffff/email-open.png" alt="email-open" />
+
+        <h4 class="boas-vindas">Seja bem vindo {{ nome }}</h4>
+
+        <div class="borda"></div>
+
+        <h1 class="titulo">Verifique sua Conta</h1>
+
+        <div class="borda2"></div>
+
+        <p class="info">Agradecemos por se cadastrar em nossa instituição! Para concluir o processo de registro, por
+            favor, clique no
+            botão abaixo para confirmar seu e-mail e ativar sua conta</p>
+
+        <a class="link" href="{{ url }}"><button class="btn-acesso">Clique aqui para confirmar</button></a>
+
+        <p class="alerta" style="color: tomato;">Se você não realizou este cadastro, por favor, ignore este e-mail *</p>
+    </div>
+</body>
+
+</html>

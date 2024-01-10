@@ -1,0 +1,28 @@
+
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "projeto_acad/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    {
+      "src": "/build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles_build"
+      }
+    }
+    ],
+  "routes": [
+    {
+      "src": "/app_acad/static/(.*)",
+      "dest": "/app_acad/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "projeto_acad/wsgi.py"
+    }
+    ]
+}

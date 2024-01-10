@@ -1,0 +1,5 @@
+<h1>vc e um aluno</h1>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>

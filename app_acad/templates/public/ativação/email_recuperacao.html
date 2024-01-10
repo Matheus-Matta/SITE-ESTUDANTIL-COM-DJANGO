@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .body {
+            background-color: #212121;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .box {
+            padding: 20px 0;
+        }
+
+        .btn-acesso {
+            max-width: 250px;
+            min-width: 200px;
+            padding: 0 5px;
+            height: 30px;
+            border-radius: 5px;
+            background: linear-gradient(94deg, rgba(0, 151, 171, 1) 0%, rgba(13, 202, 209, 1) 100%);
+            color: #f1f1f1;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            margin: 0 5px;
+        }
+
+        .boas-vindas {
+            width: 250px;
+            margin: 0 auto;
+            border-bottom: 3px solid rgba(13, 202, 209, 1);
+            padding-bottom: 10px;
+        }
+
+        .titulo {
+            width: 200px;
+            margin: 0 auto;
+            font-size: 18px;
+            margin-top: 10px;
+            color: rgb(254, 208, 25);
+        }
+
+        .info {
+            max-width: 600px;
+            min-width: 200px;
+            margin: 10px auto;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+
+        .alerta {
+            font-size: 12px;
+            max-width: 350px;
+            min-width: 200px;
+            padding: 0 5px;
+            margin: 0 auto;
+            margin-top: 10px;
+
+        }
+
+        .link {
+            width: 250px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="box">
+        <img class="img" src="https://img.icons8.com/ios/50/ffffff/email-open.png" alt="email-open" />
+
+        <h4 class="boas-vindas">Olá {{ nome }}</h4>
+
+        <div class="borda"></div>
+
+        <h1 class="titulo">Recupere sua senha</h1>
+
+        <div class="borda2"></div>
+
+        <p class="info">Você solicitou a recuperação de senha para sua conta em nosso sistema. Para garantir o acesso
+            seguro, clique no botão abaixo para seguir para a pagina de recuperação. Siga as instruções para criar uma
+            nova senha forte. Recomendamos incluir letras maiúsculas/minúsculas, números e caracteres especiais.</p>
+
+        <a class="link" href="{{ url }}"><button class="btn-acesso">Clique aqui para prosseguir</button></a>
+
+        <p class="alerta" style="color: tomato;">Por favor, conclua o processo imediatamente, pois o link pode expirar
+            por razões de segurança. Se não solicitou a recuperação ou esta mensagem não se aplica a você, responda a
+            este e-mail ou contate-nos através dos canais de suporte.</p>
+    </div>
+</body>
+
+</html>
