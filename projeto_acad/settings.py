@@ -15,16 +15,8 @@ from pathlib import Path
 
 import os  
 
-
-
-# carregando arquivos do .env
-from dotenv import load_dotenv
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -136,7 +128,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "/home/MatheusMatta/SITE-ESTUDANTIL-COM-DJANGO/app_acad/static"
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  "/home/MatheusMatta/SITE-ESTUDANTIL-COM-DJANGO/app_acad/media"
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'app_acad/static'),
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
