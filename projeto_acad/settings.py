@@ -15,6 +15,13 @@ from pathlib import Path
 
 import os  
 
+# Especifique o caminho para o ambiente virtual
+virtualenv_path = '/home/MatheusMatta/.virtualenvs/myenv'
+activate_this = virtualenv_path + '/bin/activate'
+# Ative o ambiente virtual
+exec(open(activate_this).read(), dict(__file__=activate_this))
+
+
 # carregando arquivos do .env
 from dotenv import load_dotenv
 load_dotenv()
