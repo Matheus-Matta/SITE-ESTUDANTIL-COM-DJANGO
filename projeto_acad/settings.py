@@ -35,7 +35,7 @@ SECRET_KEY = "zv6ur1smraq$*^g9b=(+be9pr=77nk6g@ghhvq+45_4tv=$^sz"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =  ['MatheusMatta.pythonanywhere.com']
+ALLOWED_HOSTS = ['MatheusMatta.pythonanywhere.com']
 
 
 # Application definition
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'projeto_acad.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['SITE-ESTUDANTIL-COM-DJANGO/app_acad/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +133,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "/home/MatheusMatta/SITE-ESTUDANTIL-COM-DJANGO/app_acad/static"
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  "/home/MatheusMatta/SITE-ESTUDANTIL-COM-DJANGO/app_acad/media"
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'app_acad/static'),
 
 # Default primary key field type
