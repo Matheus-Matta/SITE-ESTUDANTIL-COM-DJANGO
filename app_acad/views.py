@@ -19,8 +19,6 @@ from datetime import datetime
 # função para retorna uma pagina html na rota
 # A pasta templates e essencial ( padrao para o django todo html tem que esta la)
 def home(request):
-    usuario =  Usuarios.objects.filter(id=1).first()
-    usuario.delete()
     return render(request, './public/home.html')
 
 #-----------------------------------------------------------------------------------------------------------------------      
