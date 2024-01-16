@@ -1,1 +1,160 @@
-<h1>VC ESTA NO ADMIN</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Academia broken</title>
+        <link rel="stylesheet" href="{% static 'css/import.css' %}">
+        <style>
+           
+        </style>
+    </head>
+</head>
+<body>
+    <div class="admin-grid-layout">
+        <div class="admin-menu">
+            <h1 class="titulo-dashbord">Admin..</h1>
+            <p class="menu-itens" id="admin-home">
+                <img width="18" height="18" src="https://img.icons8.com/fluency-systems-filled/48/575757/home.png" alt="home"/>
+                Home
+            </p>
+            <p class="menu-itens">
+                <img width="18" height="18" src="https://img.icons8.com/metro/26/575757/user-group-man-man.png" alt="user-group-man-man"/>
+                Gestão de Usuários
+            </p>
+            <p class="menu-itens">
+                <img width="18" height="18" src="https://img.icons8.com/ios-filled/50/575757/courses.png" alt="courses"/>
+                Gestão de Cursos
+            </p>
+            <p class="menu-itens">
+                <img width="18" height="18" src="https://img.icons8.com/external-kosonicon-solid-kosonicon/48/575757/external-finance-insurance-kosonicon-solid-kosonicon.png" alt="external-finance-insurance-kosonicon-solid-kosonicon"/>
+                Finanças
+            </p>
+            <p class="menu-itens">
+                <img width="18" height="18" src="https://img.icons8.com/ios-filled/50/575757/communication.png" alt="communication"/>
+                Comunicação
+            </p>
+        </div>
+        <div class="admin-dashbord admin-dashbord-financeiro none">
+            <div class="dash-itens grid-1"></div>
+            <div class="dash-itens grid-2"></div>
+            <div class="dash-itens grid-3"></div>
+            <div class="dash-itens grid-4"></div>
+        </div>
+        <div class="admin-dashbord  admin-dashbord-usuarios">
+           <div class="menu-usuarios">
+                <p data-id="menu-acesso_func" style="z-index: 3;">Funcionarios</p>
+                <p data-id="menu-acesso_prof" style="z-index: 2;">Professores</p>
+                <p data-id="menu-acesso_aluno" style="z-index: 1;" >Alunos</p>
+           </div>
+           <div class="menu-usuarios-alunos">
+                <div class="filtro-alunos">
+                    <label for="filtro-alunos-nome" class="label-nome">
+                        <img width="22" height="22" src="https://img.icons8.com/ios-filled/50/575757/search--v1.png" alt="search--v1"/>
+                        <input class="input-filtro-nome" id="filtro-alunos-nome" type="text" name="nome" placeholder="Nome">
+                    </label>
+                    <h4>idade</h4>
+                    <input class="filtro-idade" type="number" name="idade-max" id="filtro-idade-max" placeholder="Max">
+                    <input class="filtro-idade" type="number" name="idade-min" id="filtro-idade-min" placeholder="Min">
+                    <h4>sexo</h4>
+                    <div class="filtro-sexo"> 
+                        <div>
+                            <input value="masculino" class="filtro-sexo" type="radio" name="sexo" id="filtro-sexo-m">
+                            <p>Masculino</p>
+                        </div>
+                        <div>
+                            <input value="feminino" class="filtro-sexo" type="radio" name="sexo" id="filtro-sexo-f">
+                            <p>Feminino</p>
+                        </div>
+                    </div>
+                    <h4>data de entrada</h4>
+                    <div class="box-data">
+                        <p>de</p>
+                        <input type="date" class="filtro-data" name="data-inicio">
+                        <br>
+                        <p>até</p>
+                        <input type="date" class="filtro-data" name="data-fim">
+                    </div>
+                </div>
+                <div class="lista-de-usuarios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#id</th>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Data de entrada</th>
+                            </tr>
+                        </thead>
+                        <tbody  id="menu-acesso_aluno" >
+                            {% for usuario in usuarios %}
+                                {% if usuario.perm == 'acesso_aluno' %}
+                                    <tr>
+                                        <td>#{{ usuario.id }}</td>
+                                        <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                                        <td>{{ usuario.idade }} anos</td>
+                                        <td>{{ usuario.email }}</td>
+                                        <td>{{ usuario.telefone }}</td>
+                                        <td>{{ usuario.data_entrada }}</td>
+                                        <td>
+                                            <div class="info">
+                                                <button data-id="{{ usuario.id }}">editar</button>
+                                                <button data-id="{{ usuario.id }}">apagar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                        <tbody  id="menu-acesso_prof" >
+                            {% for usuario in usuarios %}
+                                {% if usuario.perm == 'acesso_prof' %}
+                                    <tr>
+                                        <td>#{{ usuario.id }}</td>
+                                        <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                                        <td>{{ usuario.idade }} anos</td>
+                                        <td>{{ usuario.email }}</td>
+                                        <td>{{ usuario.telefone }}</td>
+                                        <td>{{ usuario.data_entrada }}</td>
+                                        <td>
+                                            <div class="info">
+                                                <button data-id="{{ usuario.id }}">editar</button>
+                                                <button data-id="{{ usuario.id }}">apagar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                        <tbody  id="menu-acesso_func" >
+                            {% for usuario in usuarios %}
+                                {% if usuario.perm == 'acesso_func' %}
+                                    <tr>
+                                        <td>#{{ usuario.id }}</td>
+                                        <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                                        <td>{{ usuario.idade }} anos</td>
+                                        <td>{{ usuario.email }}</td>
+                                        <td>{{ usuario.telefone }}</td>
+                                        <td>{{ usuario.data_entrada }}</td>
+                                        <td>
+                                            <div class="info">
+                                                <button data-id="{{ usuario.id }}">editar</button>
+                                                <button data-id="{{ usuario.id }}">apagar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+        </div>
+    </div>
+    <script type="module" src="{% static 'scripts/efeitos/efeitos_admin.js' %}"></script>
+</body>
+</html>

@@ -27,9 +27,9 @@ urlpatterns = [
     #---------------------------------------------------------------------------------
     
     # acesso admin
-    path('admin/',views.login_admin,name='login_admin'),
+    path('login/admin/',views.login_admin,name='login_admin'),
     # acesso aluno
-    path('aluno/',views.login_aluno,name='login_aluno'),
+    path('login/aluno/',views.login_aluno,name='login_aluno'),
     
     # rota de logout 
     path('logout/', LogoutView.as_view(), name='logout')

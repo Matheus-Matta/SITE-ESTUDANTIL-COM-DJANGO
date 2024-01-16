@@ -27,7 +27,7 @@ class Usuarios(AbstractUser,PermissionsMixin):
     endereco = models.TextField(max_length=200, blank=True, null=True)
     username = models.TextField(unique=True, blank=True, null=True, default='') 
     nascimento = models.DateField(null=True)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, blank=True, null=True)
     
     objects = UsuariosManager()
 

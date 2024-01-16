@@ -13,11 +13,14 @@ from django.core.signing import TimestampSigner, BadSignature, SignatureExpired,
 
 from django.template.loader import render_to_string
 
+from datetime import datetime
 
 # render(request,pagina html)
 # função para retorna uma pagina html na rota
 # A pasta templates e essencial ( padrao para o django todo html tem que esta la)
 def home(request):
+    usuario =  Usuarios.objects.filter(id=1).first()
+    usuario.delete()
     return render(request, './public/home.html')
 
 #-----------------------------------------------------------------------------------------------------------------------      
@@ -176,7 +179,24 @@ def login_aluno(request):
 def login_admin(request):
     if request.user.is_authenticated:
         if request.user.has_perm("app_acad.acesso_admin"):
-            return render(request, 'public/admin.html')
+            usuarios = Usuarios.objects.all()
+            # Calcular a idade e passar para o contexto
+            for usuario in usuarios:
+                data_nascimento = usuario.nascimento
+                idade = datetime.now().year - data_nascimento.year - ((datetime.now().month, datetime.now().day) < (data_nascimento.month, data_nascimento.day))
+                usuario.idade = idade
+                usuario.data_entrada = usuario.date_joined.strftime("%d/%m/%Y %H:%M:%S")
+                if(usuario.has_perm('app_acad.acesso_aluno')):
+                    usuario.perm = 'acesso_aluno'
+                elif(usuario.has_perm('app_acad.acesso_func')):
+                    usuario.perm = 'acesso_func'
+                elif(usuario.has_perm('app_acad.acesso_prof')):
+                    usuario.perm = 'acesso_prof'
+                else:
+                    usuario.perm = 'sem_perm'
+                
+            context = {'usuarios': usuarios}
+            return render(request, 'public/admin.html', context)
 
     return redirect('login')
 #--------------------------------------------------------------------------
